@@ -27,7 +27,7 @@ genesis_conf = {
     "genesis_consensus": {
         "name": "pow",
         "config": {
-            "defaultTarget": "509519",
+            "defaultTarget": "545259519",
             "adjustHeightGap": "5",
             "expectedPeriod": "15",
             "maxTarget": "486604799"
