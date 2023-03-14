@@ -21,6 +21,7 @@ echo "Generating $count node accounts..."
 chmod +x ./output/bin/*
 
 mkdir -p ./nodes/
+
 i="$START"
 while [[ "$i" -le "$END" ]]; do
   echo "====($i/$END)===="
@@ -59,3 +60,11 @@ while [[ "$i" -le "$END" ]]; do
 
   ((i = i + 1))
 done
+
+i="$START"
+while [[ "$i" -le "$END" ]]; do
+  scp -i ~/.ssh/xuperchain_ecdsa -o StrictHostKeychecking=no {_start-node.sh,_stop-node.sh,_check-node.sh} "$USERNAME@${NODE_IPS[$i]}:~/" &
+  sleep 0.1s
+  ((i = i + 1))
+done
+wait
